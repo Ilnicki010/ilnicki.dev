@@ -10,7 +10,7 @@
     <transition name="fade-up">
       <section v-if="loaded" style="transition-delay: .42s" class="projectsList">
         <Project
-          :background="'kaligrafowane.webp'"
+          :background="'kaligrafowane'"
           :url="'https://kaligrafowane.pl'"
           :gitUrl="'https://github.com/Ilnicki010/kaligrafowane.pl'"
         >
@@ -21,7 +21,7 @@
           <template v-slot:stack>VUE / NUXT / SCSS / Adobe XD</template>
         </Project>
         <Project
-          :background="'quiz_fighters.webp'"
+          :background="'quiz_fighters'"
           :url="'https://stoic-aryabhata-79d354.netlify.com/'"
           :gitUrl="'https://github.com/Ilnicki010/kodujwebapp'"
         >
@@ -36,7 +36,8 @@
           <template v-slot:stack>VUE / Firebase Auth / Mongo DB / Cloud Functions / SCSS / Adobe XD</template>
         </Project>
         <Project
-          :background="'hackathon.webp'"
+          :background="'hackathon'"
+          :url="'https://drive.google.com/file/d/1yUG3G8VVGZOnC8Y7MGrQ0ZJFVJrq4Ffu/view'"
           :gitUrl="'https://github.com/Ilnicki010/behealthy-hackathon'"
         >
           <template v-slot:title>
@@ -49,7 +50,8 @@
           <template v-slot:stack>VUE / Strapi CMS / SCSS / Adobe XD</template>
         </Project>
         <Project
-          :background="'strapi_blog.webp'"
+          :background="'strapi_blog'"
+          :url="'https://drive.google.com/file/d/1LfdxpjM29zO3SWl_V2IZovAc31xT5myn/view?usp=sharing'"
           :gitUrl="'https://github.com/Ilnicki010/starpi-vue-blog'"
         >
           <template v-slot:title>

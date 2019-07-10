@@ -2,7 +2,7 @@
   <article class="project">
     <div
       v-if="background"
-      :style="{'background-image': `url(${require(`@/assets/img/webp/${this.background}`)})`}"
+      :style="{'background-image': `url(${require(`@/assets/img/png/${this.background}.png`)})`}"
       class="image"
     ></div>
     <h2 class="project__header">

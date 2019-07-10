@@ -17,6 +17,7 @@
           <span>SCSS</span>
           <span>UI/UX</span>
           <span>Node</span>
+          <span>GIT</span>
         </div>
       </section>
     </transition>
