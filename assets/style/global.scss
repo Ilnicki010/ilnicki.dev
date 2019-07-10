@@ -104,3 +104,12 @@ section {
   transform: translateY(3vh);
   opacity: 0;
 }
+
+.comeIn-enter-active {
+  transition: 0.6s cubic-bezier(0.16, 0.57, 0.83, 1.32);
+}
+
+.comeIn-enter {
+  background: #000;
+  transform: translateX(-100px);
+}

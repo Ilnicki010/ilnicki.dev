@@ -8,12 +8,17 @@
             DOMINIK
             <br />ILNICKI
           </h1>
-          <span class="nameWrapper__profesion">//web developer*</span>
+          <div>
+            <span class="nameWrapper__profesion">
+              //web developer
+              <span class="fade-in">*</span>
+            </span>
+          </div>
         </article>
         <Menu class="mainMenu" />
         <!-- <img class="transformedText" src="~/assets/svg/asset.svg" alt="DOMINIK ILNICKI" /> -->
         <!-- <span class="rotatedText">DOMINIK ILNICKI</span> -->
-        <Footer />
+        <Footer class="fade-in" />
       </section>
     </transition>
   </div>
@@ -51,8 +56,9 @@ export default {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
+  margin-bottom: 3vh;
   .nameWrapper__profesion {
-    letter-spacing: 13px;
+    letter-spacing: 12px;
   }
 }
 .transformedText {
@@ -66,20 +72,19 @@ export default {
   position: absolute;
   right: 0;
   top: 0;
-  // -moz-transform: scaleX(-1);
-  // -o-transform: scaleX(-1);
-  // -webkit-transform: scaleX(-1);
   transform: rotate(90deg);
 }
-//transition
-.comeIn-enter-active {
-  transition: 0.6s cubic-bezier(0.16, 0.57, 0.83, 1.32);
+.fade-in {
+  animation: fade-in 0.3s 1s ease-out both;
 }
-.comeIn-enter {
-  background: #000;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
-    1px 1px 0 white;
-  transform: translateX(-100px);
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media (min-width: 720px) {
