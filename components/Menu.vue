@@ -29,5 +29,12 @@ export default {}
 @import '~/assets/style/vars.scss';
 .menuWrapper {
   color: $secondary;
+  float: right;
+  text-align: right;
+  padding-right: 20px;
+  @media (min-width: 720px) {
+    float: left;
+    text-align: left;
+  }
 }
 </style>

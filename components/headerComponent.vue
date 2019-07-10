@@ -41,8 +41,8 @@ export default {
   .contentWrapper {
     display: flex;
     flex-direction: column;
-    justify-content: right;
-    text-align: right;
+    justify-content: left;
+    text-align: left;
     word-break: keep-all;
     p {
       word-break: keep-all;
@@ -53,7 +53,7 @@ export default {
   .header__text {
     margin-top: -40px;
     position: relative;
-    text-align: right;
+    text-align: left;
   }
 }
 @media (min-width: 720px) {
@@ -62,8 +62,13 @@ export default {
     flex-direction: row;
     justify-content: baseline;
     align-items: flex-end;
+    .contentWrapper {
+      justify-content: right;
+      text-align: right;
+    }
     .header__text {
       margin-top: 0;
+      text-align: right;
     }
     * {
       flex: 1;
