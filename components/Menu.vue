@@ -32,6 +32,10 @@ export default {}
   float: right;
   text-align: right;
   padding-right: 20px;
+  z-index: 9999;
+  li {
+    cursor: pointer;
+  }
   @media (min-width: 720px) {
     float: left;
     text-align: left;

@@ -45,8 +45,11 @@ export default {
   flex-direction: column;
   border-left: 2px solid #000;
   padding: 0 15px;
-  margin-top: 6vh;
+  margin-top: 15vh;
   width: 100%;
+  &:nth-child(1) {
+    margin-top: 3vh;
+  }
   .image {
     height: 30vh;
     margin-bottom: 20px;
