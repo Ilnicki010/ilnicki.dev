@@ -1,0 +1,106 @@
+@import './vars.scss';
+
+h1 {
+  font-size: $xx-large;
+
+}
+
+h1,
+h2,
+h3 {
+  @include main-font;
+  word-break: break-all;
+  line-height: 0.8;
+}
+
+h2 {
+  font-size: $x-large;
+}
+
+h3 {
+  font-size: $large;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    @include main-font;
+    line-height: 1.8;
+    padding: 10px;
+    text-decoration: underline $secondary;
+    color: $secondary;
+    font-size: $regular;
+    transition: 0.34s ease-out;
+
+    &:hover {
+      letter-spacing: 17px;
+    }
+  }
+}
+
+p {
+  word-break: break-all;
+}
+
+section {
+  padding: 20px;
+}
+
+@media (min-width: 720px) {
+  section {
+    padding: 80px;
+  }
+}
+
+//transitions
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.4s;
+}
+
+.page-enter {
+  opacity: 0;
+  transform: translateX(-100vw);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateX(100vw);
+}
+
+.slide-up-enter-active {
+  transition: all 0.2s ease-out;
+}
+
+.slide-up-leave-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-up-enter,
+.slide-fade-leave-to {
+  transform: translateY(-10vh);
+  opacity: 0;
+}
+
+.fade-up-enter-active {
+  transition: all 0.4s ease-out;
+}
+
+.fade-up-leave-active {
+  transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.fade-up-enter,
+.fade-up-leave-to {
+  transform: translateY(3vh);
+  opacity: 0;
+}

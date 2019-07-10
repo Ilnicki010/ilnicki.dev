@@ -1,0 +1,30 @@
+//colors
+$secondary:#AC2D2D;
+
+//font sizes
+$xx-large:4rem;
+$x-large:3rem;
+$large:2.6rem;
+$regular:1.2rem;
+$small:.9rem;
+$xx-small:.7rem;
+
+
+//fonst 
+@mixin main-font {
+  font-family: acumin-pro, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@mixin secondary-font {
+  font-family: acumin-pro, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin stroke {
+  color: #fff;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
