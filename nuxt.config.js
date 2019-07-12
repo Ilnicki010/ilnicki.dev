@@ -46,7 +46,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/v-webp.js'],
   /*
    ** Nuxt.js modules
    */

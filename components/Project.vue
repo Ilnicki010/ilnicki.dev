@@ -1,7 +1,12 @@
 <template>
   <article class="project">
     <div
-      v-if="background"
+      v-if="background && $webp"
+      :style="{'background-image': `url(${require(`@/assets/img/webp/${this.background}.webp`)})`}"
+      class="image"
+    ></div>
+    <div
+      v-if="background && !$webp"
       :style="{'background-image': `url(${require(`@/assets/img/png/${this.background}.png`)})`}"
       class="image"
     ></div>

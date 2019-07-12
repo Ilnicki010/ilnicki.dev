@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "nuxt": "^2.0.0",
-    "vue-pdf": "^4.0.7"
+    "v-webp": "^1.0.3",
+    "vue-pdf": "^4.0.7",
+    "vue-webp-plugin": "^1.0.2"
   },
   "devDependencies": {
     "eslint-config-prettier": "^4.1.0",
