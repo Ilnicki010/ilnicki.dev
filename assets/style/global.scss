@@ -1,16 +1,16 @@
 @import './vars.scss';
 
-h1 {
-  font-size: $xx-large;
-
-}
-
 h1,
 h2,
 h3 {
   @include main-font;
-  word-break: break-all;
+  white-space: nowrap;
   line-height: 0.8;
+}
+
+h1 {
+  font-size: $xx-large;
+
 }
 
 h2 {
@@ -40,24 +40,55 @@ ul {
     color: $secondary;
     font-size: $regular;
     transition: 0.34s ease-out;
-
-    &:hover {
-      letter-spacing: 17px;
-    }
   }
 }
 
 p {
   word-break: break-all;
+  font-size: $regular;
 }
 
 section {
   padding: 20px;
 }
 
+@media (max-width:330px) {
+
+  h1,
+  h2,
+  h3 {
+    line-height: 1;
+  }
+
+  h1 {
+    font-size:calc(#{$xx-large} - 5vw);
+    padding-top: 1vh;
+  }
+
+  h2 {
+    font-size:calc(#{$x-large} - 1vw);
+  }
+
+  h3 {
+    font-size:calc(#{$large} - 1vw);
+  }
+
+  a,
+  p,
+  span {
+    font-size:calc(#{$regular} - 2vw);
+  }
+}
+
+
 @media (min-width: 720px) {
+
   section {
     padding: 80px;
+  }
+
+  a:hover {
+    letter-spacing: 17px;
   }
 }
 

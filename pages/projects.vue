@@ -14,7 +14,10 @@
           :url="'https://kaligrafowane.pl'"
           :gitUrl="'https://github.com/Ilnicki010/kaligrafowane.pl'"
         >
-          <template v-slot:title>KALIGRAFOWANE.PL</template>
+          <template v-slot:title>
+            KALIGRAF -
+            <br />OWANE.PL
+          </template>
           <template
             v-slot:desc
           >Static website for local business. Created in mobile first approach using Nuxt JS. Designed using Adobe XD tool after interview with client. This site scores near 100 points in all Google Audits categories, and It's close to perfect in W3C HTML & CSS validator.</template>

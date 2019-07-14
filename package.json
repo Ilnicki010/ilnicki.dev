@@ -1,7 +1,7 @@
 {
   "name": "ilnicki.dev",
   "version": "1.0.0",
-  "description": "",
+  "description": "Dominik Ilnicki // web developer",
   "author": "Dominik Ilnicki",
   "private": true,
   "scripts": {
@@ -12,9 +12,7 @@
   },
   "dependencies": {
     "nuxt": "^2.0.0",
-    "v-webp": "^1.0.3",
-    "vue-pdf": "^4.0.7",
-    "vue-webp-plugin": "^1.0.2"
+    "v-webp": "^1.0.3"
   },
   "devDependencies": {
     "eslint-config-prettier": "^4.1.0",

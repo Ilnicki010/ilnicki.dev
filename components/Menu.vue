@@ -33,6 +33,9 @@ export default {}
   text-align: right;
   padding-right: 20px;
   z-index: 9999;
+  .menuLabel {
+    margin-bottom: 10px;
+  }
   li {
     cursor: pointer;
   }
