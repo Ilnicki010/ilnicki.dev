@@ -1,0 +1,47 @@
+---
+import { loomId } from '../lib/loom';
+interface Props {
+  url: string;
+  title: string;
+}
+const { url, title } = Astro.props;
+const id = loomId(url);
+if (!id) throw new Error(`Invalid Loom URL: ${url}`);
+---
+
+<figure class="loom-video" data-loom-id={id} data-loom-title={title}>
+  <div class="loom-frame">
+    <a class="loom-play" href={url} data-loom-play>
+      <span class="play-icon" aria-hidden="true">▶</span>
+      <span>{title}</span>
+      <span class="loom-hint">Watch on Loom</span>
+    </a>
+  </div>
+  <figcaption><a href={url} target="_blank" rel="noopener noreferrer">Open on Loom <span aria-hidden="true">↗</span></a></figcaption>
+</figure>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-loom-id]').forEach((video) => {
+    const link = video.querySelector<HTMLAnchorElement>('[data-loom-play]');
+    if (!link) return;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = link.className;
+    button.innerHTML = link.innerHTML;
+    button.setAttribute('aria-label', `Play video: ${video.dataset.loomTitle}`);
+    const hint = button.querySelector('.loom-hint');
+    if (hint) hint.textContent = 'Play video · Loom';
+    link.replaceWith(button);
+
+    button.addEventListener('click', () => {
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.loom.com/embed/${video.dataset.loomId}?autoplay=1`;
+      iframe.title = video.dataset.loomTitle || 'Loom video';
+      iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      button.replaceWith(iframe);
+      iframe.focus();
+    }, { once: true });
+  });
+</script>

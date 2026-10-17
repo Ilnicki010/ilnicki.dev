@@ -1,0 +1,49 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LoomVideo from '../../components/LoomVideo.astro';
+import { formatDate, formatTag, getNotes, noteUrl } from '../../lib/notes';
+
+export const getStaticPaths = (async () => {
+  const notes = await getNotes();
+  return notes.map((note, index) => ({
+    params: { id: note.id },
+    props: { note, older: notes[index + 1], newer: notes[index - 1] },
+  }));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { note, older, newer } = Astro.props;
+const { Content } = await render(note);
+---
+
+<BaseLayout title={note.data.title} description={note.data.description} publishedAt={note.data.date} noindex={!note.data.published}>
+  <a class="back-link" href="/#writing"><span aria-hidden="true">←</span> All writing</a>
+  <article class="entry">
+    <header class="entry-header">
+      <div class="entry-meta">
+        <time datetime={note.data.date.toISOString()}>{formatDate(note.data.date)}</time>
+        {!note.data.published && <span class="unpublished-label">Unpublished</span>}
+      </div>
+      <h1>{note.data.title}</h1>
+      <div class="note-tags">
+        {note.data.tags.map((tag) => <a href={`/tags/${tag}/`}>{formatTag(tag)}</a>)}
+      </div>
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+    {note.data.loom && <LoomVideo {...note.data.loom} />}
+  </article>
+  {(older || newer) && (
+    <nav class="entry-navigation" aria-label="More writing">
+      <div>
+        {older && <a href={noteUrl(older)}><span class="eyebrow">← Older entry</span><span>{older.data.title}</span></a>}
+      </div>
+      <div>
+        {newer && <a href={noteUrl(newer)}><span class="eyebrow">Newer entry →</span><span>{newer.data.title}</span></a>}
+      </div>
+    </nav>
+  )}
+</BaseLayout>

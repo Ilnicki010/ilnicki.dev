@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <rect width="1200" height="675" fill="#e9e0cf" />
+  <circle cx="845" cy="220" r="102" fill="#b77959" />
+  <path d="M0 450Q280 160 640 440T1200 350V675H0Z" fill="#c8b695" />
+  <path d="M0 555Q300 375 630 545T1200 420V675H0Z" fill="#92917a" />
+  <path d="M0 610Q320 495 665 610T1200 540V675H0Z" fill="#686c58" />
+  <text x="70" y="95" font-family="Georgia, serif" font-size="25" font-style="italic" fill="#655a49">Lorem ipsum.</text>
+</svg>

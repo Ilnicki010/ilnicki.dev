@@ -1,0 +1,34 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NoteList from '../../components/NoteList.astro';
+import TagNav from '../../components/TagNav.astro';
+import { formatTag, getNotes, getTags } from '../../lib/notes';
+
+export const getStaticPaths = (async () => {
+  const allNotes = await getNotes();
+  const tags = getTags(allNotes);
+  return tags.map((tag) => ({
+    params: { tag },
+    props: { tag, tags, notes: allNotes.filter((note) => note.data.tags.includes(tag)) },
+  }));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { tag, tags, notes } = Astro.props;
+const tagLabel = formatTag(tag);
+---
+
+<BaseLayout title={`Entries tagged ${tagLabel}`} description={`Notes by Dominik Ilnicki filed under ${tagLabel}.`}>
+  <a class="back-link" href="/#writing"><span aria-hidden="true">←</span> All writing</a>
+  <header class="tag-header">
+    <p class="eyebrow">Filed under</p>
+    <h1>{tagLabel}<span class="accent-dot">.</span></h1>
+    <p class="tag-description">{notes.length} {notes.length === 1 ? 'entry' : 'entries'} in this corner of the notebook.</p>
+  </header>
+  <section class="writing" aria-labelledby="tag-writing-title">
+    <h2 class="sr-only" id="tag-writing-title">Writing tagged {tagLabel}</h2>
+    <TagNav tags={tags} active={tag} />
+    <NoteList notes={notes} />
+  </section>
+</BaseLayout>

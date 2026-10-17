@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NoteList from '../components/NoteList.astro';
+import TagNav from '../components/TagNav.astro';
+import { site } from '../config';
+import { getNotes, getTags } from '../lib/notes';
+
+const notes = await getNotes();
+const tags = getTags(notes);
+const profiles = [
+  { label: 'GitHub', href: site.links.github },
+  { label: 'LinkedIn', href: site.links.linkedin },
+];
+---
+
+<BaseLayout>
+  <section class="intro" aria-labelledby="intro-title">
+    <h1 id="intro-title">{site.name}<span class="accent-dot">.</span></h1>
+    <p class="intro-description">{site.intro}</p>
+    <div class="profile-links">
+      {profiles.map(({ label, href }) => href ? (
+        <a href={href} rel="me">{label} <span aria-hidden="true">↗</span></a>
+      ) : (
+        <span class="profile-placeholder" title="Profile link to be added">{label} <span aria-hidden="true">↗</span><span class="sr-only"> (link to be added)</span></span>
+      ))}
+    </div>
+  </section>
+
+  <section id="writing" class="writing" aria-labelledby="writing-title">
+    <div class="section-heading">
+      <h2 id="writing-title">Latest writing</h2>
+      <span class="entry-count">{notes.length} {notes.length === 1 ? 'entry' : 'entries'}</span>
+    </div>
+    <TagNav tags={tags} />
+    <NoteList notes={notes} />
+  </section>
+</BaseLayout>

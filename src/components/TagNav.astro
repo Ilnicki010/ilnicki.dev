@@ -1,0 +1,16 @@
+---
+import { formatTag } from '../lib/notes';
+
+interface Props {
+  tags: string[];
+  active?: string;
+}
+const { tags, active } = Astro.props;
+---
+
+<nav class="tag-nav" aria-label="Filter entries by tag">
+  <a href="/#writing" aria-current={!active ? 'page' : undefined}>All entries</a>
+  {tags.map((tag) => (
+    <a href={`/tags/${tag}/`} aria-current={active === tag ? 'page' : undefined}>{formatTag(tag)}</a>
+  ))}
+</nav>

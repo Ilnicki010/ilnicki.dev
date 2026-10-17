@@ -1,25 +1,23 @@
 {
   "name": "ilnicki.dev",
-  "version": "1.0.0",
-  "description": "",
-  "author": "Dominik Ilnicki",
+  "version": "0.0.1",
   "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
   },
   "dependencies": {
-    "nuxt": "^2.0.0",
-    "vue-pdf": "^4.0.7"
+    "@astrojs/markdown-satteri": "0.4.3",
+    "astro": "^7.3.8"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-prettier": "^3.0.1",
-    "node-sass": "^4.12.0",
-    "nodemon": "^1.18.9",
-    "prettier": "^1.16.4",
-    "sass-loader": "^7.1.0"
+    "@astrojs/check": "^0.9.10",
+    "typescript": "~5.9.3"
   }
 }
